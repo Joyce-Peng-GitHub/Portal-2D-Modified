@@ -10,7 +10,7 @@ body {
 }
 
 :root {
-    --theme: #640721;
+    --theme: #09439f;
 }
 
 .hide {
@@ -43,7 +43,7 @@ body {
     flex-direction: column;
     font-size: 4rem;
     gap: 12rem;
-    transform: skew(0, -10deg);
+    /* transform: skew(0, -10deg); */
 }
 
 .title .vertical>* {
@@ -54,7 +54,7 @@ body {
     font-size: 6rem;
     font-weight: 300;
     color: var(--theme);
-    transform: skew(0, -10deg);
+    transform: skew(0, -10deg); /* 去掉后白块变大 */
 }
 
 .title .horizontal::before {
@@ -68,7 +68,7 @@ body {
 
 .title .horizontal>.text {
     margin: 0 1rem 0.5rem 1rem;
-    transform: skew(0, 0deg);
+    transform: skew(0, 0deg); /* 去掉后文字消失 */
 }
 
 @keyframes spreadIn {
