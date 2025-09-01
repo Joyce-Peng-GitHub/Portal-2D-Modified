@@ -140,7 +140,7 @@ body {
     content: ''; /* 伪元素必须有content属性，空值表示无内容 */
     display: block; /* 伪元素设为块级元素（可设置宽高） */
     position: absolute; /* 绝对定位，相对于父元素.button */
-    width: 0.25rem; /* 装饰线宽度为0.25rem（约4px） */
+    width: 0rem; /* 装饰线宽度为0.25rem（约4px） */ /* 改为0rem以去除装饰线 */
     height: 100%; /* 装饰线高度占满按钮 */
     top: 0px; /* 装饰线距离按钮顶部0px */
     left: 0px; /* 装饰线距离按钮左侧0px */
