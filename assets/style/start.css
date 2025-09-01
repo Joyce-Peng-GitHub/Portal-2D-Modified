@@ -50,11 +50,24 @@ body {
     font-weight: 100;
 }
 
+@keyframes emergeText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        text-shadow: 5px 5px 5px #FFFFFF;
+    }
+}
+
 .title .horizontal {
+    z-index: 1;
+    opacity: 0;
     font-size: 6rem;
     font-weight: 300;
     color: var(--theme);
     transform: skew(0, 0); /* 去掉后白块变大 */
+    animation: 1s emergeText 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 @keyframes spreadIn {
@@ -95,6 +108,7 @@ body {
 }
 
 .button-container {
+    z-index: 1;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -148,7 +162,7 @@ body {
     font-style: italic;
     font-family: "Inter", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     letter-spacing: 0.05rem;
-    writing-mode: vertical-rl;
+    /* writing-mode: vertical-rl; */
     user-select: none;
 }
 
