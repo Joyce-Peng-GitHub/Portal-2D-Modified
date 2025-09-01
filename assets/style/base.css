@@ -78,17 +78,17 @@ body, html { /* 选择body和html根元素，统一设置基础样式 */
     visibility: hidden; /* 辅助隐藏，确保视觉不可见 */
 }
 :root { /* 选择根元素（HTML文档），定义全局CSS变量 */
-    --theme: #270d84; /* 定义全局主题色变量--theme，值为深青色（用于统一按钮、通知等背景色） */
+    --theme: #193bb6; /* 定义全局主题色变量--theme，值为深青色（用于统一按钮、通知等背景色） */
 }
 @keyframes spreadIn { /* 定义名为spreadIn的动画（元素展开效果） */
     from { /* 动画起始状态 */
         width: 0px; /* 宽度为0（元素完全收缩） */
-        background: #cc08088a; /* 背景色为白色 */
+        background: #0a81ea8a; /* 背景色 */
     }
 
     to { /* 动画结束状态 */
         width: 100%; /* 宽度占满父容器（元素完全展开） */
-        background: #FFFFFF; /* 背景色保持白色 */
+        background: #FFFFFF; /* 背景色 */
     }
 }
 @keyframes spreadBg { /* 定义名为spreadBg的动画（背景滑动效果） */
