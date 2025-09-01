@@ -54,7 +54,7 @@ body {
     font-size: 6rem;
     font-weight: 300;
     color: var(--theme);
-    transform: skew(0, -10deg); /* 去掉后白块变大 */
+    transform: skew(0, 0deg); /* 去掉后白块变大 */
 }
 
 .title .horizontal::before {
@@ -91,7 +91,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    transform: skew(0, -10deg);
+    transform: skew(0, 0deg);
     user-select: none;
 }
 
