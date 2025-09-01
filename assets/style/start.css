@@ -279,7 +279,7 @@ body {
     flex-direction: column;
     gap: 1rem;
     user-select: none;
-    transform: skew(0, -10deg);
+    transform: skew(0, 0deg); /* 去除倾斜 */
 }
 
 .achievementDisp > .achievement-container {
