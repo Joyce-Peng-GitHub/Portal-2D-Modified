@@ -181,7 +181,8 @@
 
             document.querySelector(".achievementDisp").addEventListener("scroll", (e) => {
                 if (canScroll) {
-                    let offsetY = e.target.scrollLeft * Math.tan(10 / 180 * Math.PI)
+                    // let offsetY = e.target.scrollLeft * Math.tan(10 / 180 * Math.PI)
+					let offsetY = 0; // 去除斜向滚动
                     document.querySelector(".achievementDisp").style.setProperty("--offsetY", `${offsetY}px`);
                 }
             })
