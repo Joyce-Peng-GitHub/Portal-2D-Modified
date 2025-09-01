@@ -76,24 +76,25 @@
     <script type="text/javascript" src="script/Managers/DataManager.js"></script>
 
     <script type="text/javascript">
-        const slideIn = () => {
+        const GAPTIME = 1800;
+        const fadeIn = () => {
             const transition = document.querySelector(".transition");
             transition.classList.remove("hidden");
-            transition.classList.add("slideIn");
+            transition.classList.add("fadeIn");
             setTimeout(() => {
                 transition.classList.add("hidden");
-                transition.classList.remove("slideIn");
-            }, 1800);
+                transition.classList.remove("fadeIn");
+            }, GAPTIME);
         };
 
-        const slideOut = () => {
+        const fadeOut = () => {
             const transition = document.querySelector(".transition");
             transition.classList.remove("hidden");
-            transition.classList.add("slideOut");
+            transition.classList.add("fadeOut");
             setTimeout(() => {
                 transition.classList.add("hidden");
-                transition.classList.remove("slideOut");
-            }, 1800);
+                transition.classList.remove("fadeOut");
+            }, GAPTIME);
         };
 
         window.onload = async () => {
@@ -113,7 +114,7 @@
                 window.location.href = `./game.html?${window.$store.encode()}`;
             })
 
-            slideIn();
+            fadeIn();
             if (!Auth.isAuthenticated()) {
                 Auth.toLogin();
             }
@@ -126,25 +127,25 @@
                 window.location.href = `./game.html?${window.$store.encode()}`;
             });
             document.querySelector("#load").addEventListener("click", () => {
-                slideOut();
+                fadeOut();
                 setTimeout(() => {
                     document.querySelector(".menu").classList.add("hide");
                     document.querySelector(".save").classList.remove("hide");
                     load.build();
-                    slideIn();
-                }, 1800);
+                    fadeIn();
+                }, GAPTIME);
             });
             document.querySelector("#save-back").addEventListener("click", () => {
-                slideOut();
+                fadeOut();
                 setTimeout(() => {
                     document.querySelector(".save").classList.add("hide");
                     document.querySelector(".save-container").innerHTML = "";
                     document.querySelector(".menu").classList.remove("hide");
-                    slideIn();
-                }, 1800);
+                    fadeIn();
+                }, GAPTIME);
             });
             document.querySelector("#achievement").addEventListener("click", () => {
-                slideOut();
+                fadeOut();
                 if (!Store.get("achievements") || !AchievementManager.getAll().length) {
                     achievementManager.refresh();
                 }
@@ -152,19 +153,19 @@
                     document.querySelector(".menu").classList.add("hide");
                     document.querySelector(".achievementDisp").classList.remove("hide");
                     achievementDisp.disp();
-                    slideIn();
+                    fadeIn();
                     canScroll = true;
-                }, 1800);
+                }, GAPTIME);
             });
             document.querySelector("#achievement-back").addEventListener("click", () => {
-                slideOut();
+                fadeOut();
                 canScroll = false;
                 setTimeout(() => {
                     document.querySelector(".achievementDisp").classList.add("hide");
                     document.querySelector(".achievement-container > .list").innerHTML = "";
                     document.querySelector(".menu").classList.remove("hide");
-                    slideIn();
-                }, 1800);
+                    fadeIn();
+                }, GAPTIME);
             });
             document.querySelector("#exit").addEventListener("click", () => {
                 Auth.logout();
