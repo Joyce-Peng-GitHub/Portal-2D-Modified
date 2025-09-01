@@ -10,7 +10,7 @@ body {
     margin: 50px auto; /* 上下外边距50px，左右自动居中 */
     padding: 20px; /* 内边距20px */
 
-    transform: skew(0, -10deg); /* 沿Y轴倾斜-10度（向上倾斜） */
+    transform: skew(0, 0deg); /* 沿Y轴倾斜-10度（向上倾斜） */ /* 改为0deg去掉倾斜 */
 }
 
 .form {
