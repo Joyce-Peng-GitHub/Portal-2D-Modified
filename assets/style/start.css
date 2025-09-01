@@ -10,7 +10,7 @@ body {
 }
 
 :root {
-    --theme: #3388BB;
+    --theme: #640721;
 }
 
 .hide {
@@ -95,37 +95,36 @@ body {
     user-select: none;
 }
 
-.button-container .button {
-    padding: 0.5rem 5rem 0.5rem 2rem;
-    text-align: start;
-    font-family: "Noto Serif", "Noto Serif SC", serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    background: var(--theme);
-    border: unset;
-    color: #ffffff;
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.button-container .button { /* 选择.button-container下的.button子元素（游戏按钮） */
+    display: flex; /* 启用Flex布局 */
+    align-items: center; /* 文字在垂直方向居中 */
+    position: relative; /* 相对定位，作为伪元素::before的参考 */
+    cursor: pointer; /* 鼠标悬停时显示“手型”光标（提示可点击） */
+    padding: 0.5rem 5rem 0.5rem 2rem; /* 内边距：上下0.5rem，左侧2rem，右侧5rem（右侧留更多空间） */
+    text-align: center; /* 按钮内文字水平居中 */
+    font-family: "Noto Serif", "Noto Serif SC", serif; /* 按钮文字字体（衬线字体，偏复古风格） */
+    font-size: 1.25rem; /* 文字大小为1.25rem（约20px） */
+    font-weight: 600; /* 文字粗细为600（半粗体） */
+    background: #bababa; /* 按钮背景色使用全局主题色--theme */
+    border: unset; /* 清除按钮默认边框 */
+    color: var(--theme); /* 按钮文字颜色为白色 */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.button-container .button::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 0.25rem;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    background: #ffffff;
+.button-container .button::before { /* 为.button元素添加伪元素（左侧白色装饰线） */
+    content: ''; /* 伪元素必须有content属性，空值表示无内容 */
+    display: block; /* 伪元素设为块级元素（可设置宽高） */
+    position: absolute; /* 绝对定位，相对于父元素.button */
+    width: 0.25rem; /* 装饰线宽度为0.25rem（约4px） */
+    height: 100%; /* 装饰线高度占满按钮 */
+    top: 0px; /* 装饰线距离按钮顶部0px */
+    left: 0px; /* 装饰线距离按钮左侧0px */
+    background: #ffffff; /* 装饰线颜色为白色 */
 }
 
-.button-container .button:hover {
-    color: var(--theme);
-    animation: 0.5s spreadBg cubic-bezier(0.23, 1, 0.32, 1) forwards;
-    background: linear-gradient(90deg, #ffffff 0 50%, var(--theme) 50% 100%);
-    background-size: 200% 100%;
+.button-container .button:hover { /* 按钮鼠标悬停状态样式 */
+    color: #ffffff; /* 文字颜色变为全局主题色（与背景色互换） */
+    background-color: var(--theme);
 }
 
 .side {
