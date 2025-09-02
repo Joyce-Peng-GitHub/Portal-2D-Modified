@@ -66,7 +66,7 @@ body {
     width: clamp(15vw, 35%, 40vw); /* 使用clamp实现基于视口宽度的响应式缩放 */
     height: clamp(15vw, 35%, 40vw); /* 使用clamp实现基于视口宽度的响应式缩放 */
     transform: skew(0, 0); /* 去掉后白块变大 */
-    animation: 1s emergeText 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation: 1s emergeText 400ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 @keyframes spreadIn {
@@ -98,7 +98,7 @@ body {
     height: 100%;
     display: block;
     position: absolute;
-    animation: 1s emergeBack 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* 原动画为上面的 spreadIn，其余参数均不变 */
+    animation: 1s emergeBack 400ms cubic-bezier(0.23, 1, 0.32, 1) forwards; /* 原动画为上面的 spreadIn，其余参数均不变 */
 }
 
 .title .horizontal>.icon {
