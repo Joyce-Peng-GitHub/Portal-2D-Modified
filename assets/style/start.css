@@ -56,16 +56,14 @@ body {
     }
     to {
         opacity: 1;
-        text-shadow: 5px 5px 5px #FFFFFF;
     }
 }
 
 .title .horizontal {
     z-index: 1;
     opacity: 0;
-    font-size: 6rem;
-    font-weight: 300;
-    color: var(--theme);
+    width: 35%;
+    height: 35%;
     transform: skew(0, 0); /* 去掉后白块变大 */
     animation: 1s emergeText 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
@@ -89,7 +87,7 @@ body {
     }
     to {
         background-color: #bababa;
-        transform: scale(1, 1);
+        transform: scale(1.2, 1.2);
     }
 }
 
@@ -102,9 +100,13 @@ body {
     animation: 1s emergeBack 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* 原动画为上面的 spreadIn，其余参数均不变 */
 }
 
-.title .horizontal>.text {
+.title .horizontal>.icon {
     margin: 0 1rem 0.5rem 1rem;
-    transform: skew(0, 0); /* 去掉后文字消失 */
+    transform: skew(0, 0);
+}
+.title .horizontal>.icon img {
+    width: 90%;
+    height: 90%;
 }
 
 .button-container {
@@ -199,6 +201,7 @@ body {
 }
 
 .transition {
+    z-index: 2;
     position: absolute; /* 绝对定位 */
     top: -20vh; /* 距离顶部-20%视口高度（部分超出顶部） */
     left: 0px; /* 距离左侧0像素 */
