@@ -323,6 +323,7 @@ body {
     cursor: pointer;
 
     margin-top: 1rem;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .achievement-container > .list > .list-item {
@@ -356,9 +357,34 @@ body {
 .save-container .list-item:hover,
 .achievement-container .list-item:hover {
     color: var(--theme);
-    animation: 0.5s spreadBg cubic-bezier(0.23, 1, 0.32, 1) forwards;
-    background: linear-gradient(90deg, #ffffff 0 50%, var(--theme) 50% 100%);
-    background-size: 200% 100%;
+    background-color: #ffffff;
+}
+
+.achievement-button {
+    display: flex; /* 启用Flex布局 */
+    align-items: center; /* 文字在垂直方向居中 */
+    justify-content: center; /* 文字在水平方向居中 */
+    align-items: center; /* 按钮垂直居中 */
+    position: absolute;
+    bottom: clamp(10vh, 10vh, 15vh);
+    right: clamp(10vh, 10vh, 15vh);
+    cursor: pointer; /* 手型光标 */
+    padding: 0.5rem 2rem; /* 统一内边距 */
+    width: clamp(10vw, 15vw, 20vw); /* 统一按钮宽度 */
+    text-align: center; /* 文本居中对齐 */
+    font-family: "Noto Serif", "Noto Serif SC", serif;
+    font-size: 1.25rem; /* 基于根元素字体大小 */
+    font-weight: 600;
+    background: #bababa;
+    border: unset;
+    color: var(--theme);
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.achievement-button:hover {
+    background-color: var(--theme);
+    color: #ffffff;
 }
 
 .save-container > .button {
