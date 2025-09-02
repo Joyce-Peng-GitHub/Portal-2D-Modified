@@ -24,8 +24,11 @@
                 <div>题</div>
             </div> -->
             <div class="horizontal">
-                <div class="text">
-                    Exitless Day
+                <!-- <div class="text">
+                    Exitless <br> Day
+                </div> -->
+                <div class="icon">
+                    <img src="./assets/icon.svg" />
                 </div>
             </div>
         </div>
@@ -38,12 +41,7 @@
         <div class="side">
             这里不知道要写啥 <br>
             但是看起来很吊所以没删 <br>
-            不仅如此 <br>
-            我还要多写几行 <br>
-            或者这里可以改成非常大量的文本形成一个背景里的元素 <br>
-            就像这样 就像这样 就像这样 就像这样 就像这样 就像这样 <br>
-            就像这样 就像这样 就像这样 就像这样 就像这样 就像这样 <br>
-            就像这样 就像这样 就像这样 就像这样 就像这样 就像这样 <br>
+            如果不写东西最好还是删了
         </div>
     </div>
 
@@ -131,7 +129,10 @@
             const achievementManager = new AchievementManager();
 
             document.querySelector("#start").addEventListener("click", () => {
-                window.location.href = `./game.html?${window.$store.encode()}`;
+                fadeOut();
+                setTimeout(() => {
+                    window.location.href = `./game.html?${window.$store.encode()}`;
+                }, GAPTIME);
             });
             document.querySelector("#load").addEventListener("click", () => {
                 fadeOut();
