@@ -81,7 +81,8 @@
     <script type="text/javascript" src="script/Managers/DataManager.js"></script>
 
     <script type="text/javascript">
-        const GAPTIME = 600;
+		const FADE_IN_GAP_TIME = 600, FADE_OUT_GAP_TIME = 1800, GAPTIME = 1800;
+		
         const fadeIn = () => {
             const transition = document.querySelector(".transition");
             transition.classList.remove("hidden");
@@ -94,7 +95,7 @@
                     在页面淡入动画结束后，将按钮容器的透明度设为1，使其显示出来。
                 */
                 document.querySelector(".menu .button-container").style.opacity = 1;
-            }, GAPTIME);
+            }, FADE_IN_GAP_TIME);
         };
 
         const fadeOut = () => {
@@ -104,7 +105,7 @@
             setTimeout(() => {
                 transition.classList.add("hidden");
                 transition.classList.remove("fadeOut");
-            }, GAPTIME);
+            }, FADE_OUT_GAP_TIME);
         };
 
         window.onload = async () => {
