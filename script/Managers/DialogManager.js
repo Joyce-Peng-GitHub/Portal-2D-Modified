@@ -6,36 +6,52 @@ class DialogManager {
         this.audio = new Audio();
     }
 
-    // 创建对话框的 DOM 元素
+    // 创建对话框的 DOM 元素 (已修改)
     createDialog() {
         let dialog = document.querySelector(".dialogue-container");
         let textContainer = document.querySelector(".dialogue-box");
+
+        // 创建新的元素
+        let characterInfo = document.createElement("div");
         let name = document.createElement("div");
+        let avatarBox = document.createElement("div");
+        let avatarImage = document.createElement("img");
         let text = document.createElement("p");
+
         // 设置 ID 和样式
         dialog.id = "dialogue-container";
         dialog.style.display = "none";
 
-        textContainer.id = "dialogue-box";
-        textContainer.classList.add("dialogue-box");
+        characterInfo.classList.add("character-info");
 
         name.id = "character-name";
         name.classList.add("character-name");
+
+        avatarBox.classList.add("avatar-box");
+        avatarImage.id = "avatar-image";
+        avatarImage.alt = "avatar";
+
+        textContainer.id = "dialogue-box";
 
         text.id = "text";
         text.classList.add("text");
 
         // 组装 DOM 元素
-        dialog.appendChild(name);
-        dialog.appendChild(textContainer);
+        avatarBox.appendChild(avatarImage);
+        characterInfo.appendChild(name);
+        characterInfo.appendChild(avatarBox);
+
+        // 将角色信息（头像和名字）添加到主容器的开头
+        dialog.prepend(characterInfo);
         textContainer.appendChild(text);
-        document.getElementById("game").appendChild(dialog);
 
         // 存储 DOM 元素的引用
         this.dialog = dialog;
         this.name = name;
         this.text = text;
+        this.avatarImage = avatarImage; // 存储头像图片的引用
     }
+    
     load(data) {
         this.buffer = data.texts;
     }
@@ -61,10 +77,11 @@ class DialogManager {
 
         this.name.innerHTML = ""; // 清空名称和文本
         this.text.innerHTML = "";
+        this.avatarImage.src = ""; // 清空头像
 
         this.dialog.classList.remove('fadeOut');
         this.dialog.classList.add('fadeIn');
-        this.dialog.style.display = "block";
+        this.dialog.style.display = "flex"; // 修改为flex以适配新布局
 
         await wait(300);
         this.dialog.classList.remove('fadeIn');
@@ -81,6 +98,7 @@ class DialogManager {
 
         this.name.innerHTML = ""; // 清空名称和文本
         this.text.innerHTML = "";
+        this.avatarImage.src = ""; // 清空头像
     }
 
     // 打印文本
@@ -96,7 +114,7 @@ class DialogManager {
         this.buffer = [];
         this.printing = false;
     }
-    // 打印缓冲区中的文本
+    // 打印缓冲区中的文本 (已修改)
     async _prints() {
         this.printing = true;
 
@@ -104,6 +122,16 @@ class DialogManager {
             if (!this.printing) return;
             this.name.innerHTML = ""; // 清空名称和文本
             this.text.innerHTML = "";
+
+            // 根据对话数据设置头像
+            if (content.avatar) {
+                this.avatarImage.src = content.avatar;
+                this.avatarImage.style.display = 'block';
+            } else {
+                this.avatarImage.src = '';
+                this.avatarImage.style.display = 'none';
+            }
+
             let text = content.text;
             if (text[ 0 ] === "【") {
                 let end = text.indexOf("】");
@@ -153,10 +181,14 @@ class DialogManager {
         this.printing = false;
     }
 
+    // (已修改)
     async clear() {
         this.buffer = [];
         this.name.innerHTML = "";
         this.text.innerHTML = "";
+        if (this.avatarImage) {
+            this.avatarImage.src = "";
+        }
         this.printing = false;
         await this.close();
     }
