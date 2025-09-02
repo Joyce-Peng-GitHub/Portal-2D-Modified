@@ -57,9 +57,7 @@
             <div class="title">成就</div>
             <div class="list"></div>
         </div>
-        <div class="button-container">
-            <div class="button" id="achievement-back">返回</div>
-        </div>
+        <div class="achievement-button" id="achievement-back">返回</div>
     </div>
 
     <div class="transition hidden">
@@ -81,8 +79,8 @@
     <script type="text/javascript" src="script/Managers/DataManager.js"></script>
 
     <script type="text/javascript">
-		const FADE_IN_GAP_TIME = 600, FADE_OUT_GAP_TIME = 1800, GAPTIME = 1800;
-		
+        const FADE_IN_GAP_TIME = 600, FADE_OUT_GAP_TIME = 1800, GAPTIME = 1800;
+        
         const fadeIn = () => {
             const transition = document.querySelector(".transition");
             transition.classList.remove("hidden");
